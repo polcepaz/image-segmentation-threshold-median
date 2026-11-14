@@ -1,0 +1,9 @@
+# Redirige todas las peticiones al directorio público (front controller).
+# Permite servir la aplicación como subdirectorio en XAMPP.
+<IfModule mod_rewrite.c>
+    RewriteEngine On
+
+    # Si la URI ya contiene /public/, no reescribir de nuevo.
+    RewriteCond %{REQUEST_URI} !/public/
+    RewriteRule ^(.*)$ public/$1 [L]
+</IfModule>
